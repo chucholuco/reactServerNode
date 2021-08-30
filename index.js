@@ -9,7 +9,12 @@ const app = express();
 conectarDB();
 
 //Habilitar CORS
-app.use(cors());
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ }
+app.use(cors(corsOptions));
 
 //Habilitar express.json
 app.use(express.json({extended: true}));
