@@ -9,18 +9,13 @@ const app = express();
 conectarDB();
 
 //Habilitar CORS
-const corsOptions ={
-    origin:'*', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
- }
-app.use(cors(corsOptions));
+app.use(cors());
 
 //Habilitar express.json
 app.use(express.json({extended: true}));
 
 //Puerto de la APP
-const port = process.env.port || 4000;
+const port = process.env.PORT || 4000;
 
 //Importar Rutas
 app.use('/api/usuarios', require('./routes/usuarios'));
